@@ -18,6 +18,17 @@ namespace Files_handlings
                 Console.WriteLine(str);
                 str = sr.ReadLine();
             }
+            
+            fs.Flush();
+            fs.Close();
+            FileStream fwrite = new FileStream("D:\\Repos File\\MyFile.txt", FileMode.Append);
+            StreamWriter swrite = new StreamWriter(fwrite);
+            Console.WriteLine("Enter Your Content to File..");
+            string content = Console.ReadLine();
+            swrite.Write(content);
+            swrite.Flush();
+            fwrite.Flush();
+            fwrite.Close();
         }
     }
 }
